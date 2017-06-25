@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+puts "Welcome to OLG Lottery Winning Numbers CLI"
+puts 
+puts "Would you like to add your winning numbers?(y/n)"
+puts ""
+puts "1 13 17 27 39 48"
