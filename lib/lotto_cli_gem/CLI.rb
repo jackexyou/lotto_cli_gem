@@ -1,4 +1,4 @@
-class Lottery
+class LottoCliGem::CLI
   
   def call
     
