@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 
+require './lib/lotto_cli_gem'
+
 puts "Welcome to OLG Lottery Winning Numbers CLI"
-puts 
 puts "Would you like to add your winning numbers?(y/n)"
-puts ""
-puts "1 13 17 27 39 48"
+
+game = Game.new("keno")
+
+game.winning_numbers

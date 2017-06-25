@@ -5,8 +5,11 @@ CLI
 
 Lottery
   has many Games
-    has Winning numbers
+
+Games
+  has Winning numbers
 
 User
   has Ticket numbers
 
+Scraper
