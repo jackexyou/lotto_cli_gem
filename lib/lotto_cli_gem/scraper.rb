@@ -17,7 +17,7 @@ class LottoCliGem::Scraper
     site = Nokogiri::HTML(open(game_url))
     name = site.search("title").text.chomp(" | OLG")
     #scrape winning numbers
-    winning_numbers = site.search("ul.winning-number span.number").collect {|x| x.text}
+    winning_numbers = site.search("ul:not(.early-bird).winning-number span.number").collect {|x| x.text}
     LottoCliGem::Game.create_game(name,winning_numbers)
   end
 
