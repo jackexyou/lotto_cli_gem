@@ -2,9 +2,7 @@
 
 require './lib/lotto_cli_gem'
 
-puts "Welcome to OLG Lottery Winning Numbers CLI"
-puts "Would you like to add your winning numbers?(y/n)"
+LottoCliGem::CLI.new.call
 
-game = Game.new("keno")
-
+game = LottoCliGem::Game.new("keno")
 game.winning_numbers

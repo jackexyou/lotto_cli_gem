@@ -1,4 +1,4 @@
-class Game
+class LottoCliGem::Game
   attr_accessor :name, :winning_numbers
 
   def initialize(name)
