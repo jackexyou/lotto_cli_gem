@@ -5,11 +5,6 @@ class LottoCliGem::CLI
     scraper.scrape_all(scraper.get_games)
 
     first_prompt
-
-    
-
-    
-
   end
 
   def list_all_games
@@ -35,10 +30,6 @@ class LottoCliGem::CLI
 
       if input == "1"
         winning_number_prompt
-        
-      
-
-
       # elsif input == "2"
       #   input = nil
       # elsif input == "3"

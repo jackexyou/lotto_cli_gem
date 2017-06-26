@@ -6,6 +6,7 @@ class LottoCliGem::Game
   def initialize(name, winning_numbers)
     @name = name
     @winning_numbers = winning_numbers
+    @winning_numbers[-1] = "BONUS: #{@winning_numbers[-1]}" 
   end
 
   def winning_numbers
