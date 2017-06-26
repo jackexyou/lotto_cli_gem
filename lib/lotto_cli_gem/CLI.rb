@@ -2,24 +2,10 @@ class LottoCliGem::CLI
   
   def call
     puts "Welcome to OLG Lottery Winning Numbers CLI"
-    while add_numbers? == nil 
+    puts "1. Look up the winning numbers."
+    puts "2. Add your own lottery numbers."
+    puts "3. Check to see if you're a winner!"
     end
-    
-    
 
   end
-
-  def add_numbers?
-    puts "Would you like to add your winning numbers?(y/n)"
-    input = gets.strip
-    if input == "y"
-      puts "hi"
-      return 1
-    elsif input == "n"
-      return 1
-    else 
-      return nil
-    end
-  end
-
 end
