@@ -18,8 +18,7 @@ class LottoCliGem::Scraper
     name = site.search("title").text.chomp(" | OLG")
     #scrape winning numbers
     winning_numbers = site.search("ul.winning-number span.number").collect {|x| x.text}
-    #Game.create_game method
-    binding.pry
+    LottoCliGem::Game.create_game(name,winning_numbers)
   end
 
   def scrape_all(game_urls)

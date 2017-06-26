@@ -4,7 +4,7 @@ require './lib/lotto_cli_gem'
 
 LottoCliGem::CLI.new.call
 
-game = LottoCliGem::Game.new("6/49")
+scraper = LottoCliGem::Scraper.new
 
-LottoCliGem::Scraper.new.get_games
-# game.winning_numbers
+scraper.scrape_all(scraper.get_games)
+binding.pry
