@@ -4,7 +4,3 @@ require './lib/lotto_cli_gem'
 
 LottoCliGem::CLI.new.call
 
-scraper = LottoCliGem::Scraper.new
-
-scraper.scrape_all(scraper.get_games)
-binding.pry
