@@ -6,11 +6,11 @@ require "lotto_cli_gem/version"
 Gem::Specification.new do |spec|
   spec.name          = "lotto_cli_gem"
   spec.version       = LottoCliGem::VERSION
-  spec.authors       = ["TODO: Write your name"]
+  spec.authors       = [" Write your name"]
   spec.email         = ["<github email address>"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{ Write a short summary, because Rubygems requires one.}
+  spec.description   = %q{ Write a longer description or delete this line.}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
