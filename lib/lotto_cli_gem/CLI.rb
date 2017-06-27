@@ -2,7 +2,6 @@ class LottoCliGem::CLI
   
   def call
     puts "Welcome to OLG Lottery Winning Numbers CLI!"
-    puts
 
     scraper = LottoCliGem::Scraper.new
     scraper.scrape_all(scraper.get_games)
@@ -16,19 +15,21 @@ class LottoCliGem::CLI
 
   def winning_numbers(input)
     game = LottoCliGem::Game.all[input.to_i - 1]
-    game.winning_numbers << "BONUS: #{game.bonus}"
+    winning = [] 
+    game.winning_numbers.each {|n| winning << n}
+    winning << "BONUS: #{game.bonus}"
   end
 
   def first_prompt
     
     input = nil
     while input != "back"
-
       puts "----------------------------------------------------"
+      puts
       puts "Please select an option:"
       puts "1. Look up the winning numbers."
       puts "2. Add your own lottery tickets."
-      puts "3. Check to see if you're a winner!(NOT AVAILABLE YET)"
+      puts "3. Check to see if your matching numbers"
       puts
       puts "Type 'exit' if you would like to exit the program"
       
@@ -39,8 +40,8 @@ class LottoCliGem::CLI
         winning_number_prompt
       elsif input == "2"
         add_ticket_prompt
-      # elsif input == "3"
-      #   input = nil
+      elsif input == "3"
+        matching_numbers_prompt
       elsif input =="exit"
         return  
       else
@@ -51,6 +52,7 @@ class LottoCliGem::CLI
   end
 
   def winning_number_prompt
+    puts
     puts "----------------------------------------------------"
     puts "Which game would you like to see the winning numbers for?"
     puts
@@ -74,10 +76,10 @@ class LottoCliGem::CLI
   end
 
   def add_ticket_prompt
-    puts "----------------------------------------------------"
-    puts "Type the name of your ticket"
     puts
-    puts "Type 'back' if you would like to return to the previous menu"
+    puts "----------------------------------------------------"
+    puts "Type the name of your ticket or 'back' if you would like to return to the previous menu"
+    puts
     input = gets.strip
     if input == "back"
       return
@@ -95,6 +97,18 @@ class LottoCliGem::CLI
       input = gets.strip
       ticket.add_number(input)
       puts "#{ticket.numbers}"
+    end
+  end
+
+  def matching_numbers_prompt
+    LottoCliGem::Ticket.all.each do |ticket|
+      print ticket.game.name
+      print  " - "
+      if ticket.matches == nil
+        puts "[]"
+      else
+        puts "#{ticket.matches}"
+      end
     end
   end
 end

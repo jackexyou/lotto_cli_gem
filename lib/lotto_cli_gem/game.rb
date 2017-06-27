@@ -9,7 +9,6 @@ class LottoCliGem::Game
     if @winning_numbers != []
       @bonus = @winning_numbers[-1]
       @winning_numbers.pop
-      # "BONUS: #{@winning_numbers[-1]}" 
     end
 
   end

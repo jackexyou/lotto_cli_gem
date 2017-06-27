@@ -31,5 +31,6 @@ class LottoCliGem::Ticket
     if @numbers.include?(game.bonus)
       match_array << "BONUS: #{game.bonus}"
     end
+    match_array
   end
 end
