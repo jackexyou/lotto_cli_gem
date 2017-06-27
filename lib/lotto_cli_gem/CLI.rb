@@ -85,12 +85,17 @@ class LottoCliGem::CLI
       puts "Invalid Game"
     else
       ticket = LottoCliGem::Ticket.create(input)
-      binding.pry
+      puts "Add your numbers:"
+      add_numbers_prompt(ticket)
     end
   end
 
-  def add_numbers_prompt
-    
+  def add_numbers_prompt(ticket)
+    while ticket.numbers.size < ticket.game.winning_numbers.size
+      input = gets.strip
+      ticket.add_number(input)
+      puts "#{ticket.numbers}"
+    end
   end
 end
 
