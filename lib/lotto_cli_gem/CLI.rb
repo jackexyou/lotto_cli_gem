@@ -3,6 +3,7 @@ class LottoCliGem::CLI
   def call
     puts "Welcome to OLG Lottery Winning Numbers CLI!"
     puts
+
     scraper = LottoCliGem::Scraper.new
     scraper.scrape_all(scraper.get_games)
     
@@ -26,7 +27,7 @@ class LottoCliGem::CLI
       puts "----------------------------------------------------"
       puts "Please select an option:"
       puts "1. Look up the winning numbers."
-      puts "2. Add your own lottery numbers.(NOT AVAILABLE YET)"
+      puts "2. Add your own lottery tickets."
       puts "3. Check to see if you're a winner!(NOT AVAILABLE YET)"
       puts
       puts "Type 'exit' if you would like to exit the program"
@@ -36,8 +37,8 @@ class LottoCliGem::CLI
 
       if input == "1"
         winning_number_prompt
-      # elsif input == "2"
-      #   input = nil
+      elsif input == "2"
+        add_ticket_prompt
       # elsif input == "3"
       #   input = nil
       elsif input =="exit"
@@ -72,4 +73,24 @@ class LottoCliGem::CLI
 
   end
 
+  def add_ticket_prompt
+    puts "----------------------------------------------------"
+    puts "Type the name of your ticket"
+    puts
+    puts "Type 'back' if you would like to return to the previous menu"
+    input = gets.strip
+    if input == "back"
+      return
+    elsif LottoCliGem::Game.find_game(input) == nil
+      puts "Invalid Game"
+    else
+      ticket = LottoCliGem::Ticket.create(input)
+      binding.pry
+    end
+  end
+
+  def add_numbers_prompt
+    
+  end
 end
+
