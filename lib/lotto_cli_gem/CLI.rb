@@ -5,7 +5,7 @@ class LottoCliGem::CLI
     puts
     scraper = LottoCliGem::Scraper.new
     scraper.scrape_all(scraper.get_games)
-
+    
     first_prompt
   end
 
@@ -14,7 +14,8 @@ class LottoCliGem::CLI
   end
 
   def winning_numbers(input)
-    LottoCliGem::Game.all[input.to_i - 1].winning_numbers
+    game = LottoCliGem::Game.all[input.to_i - 1]
+    game.winning_numbers << "BONUS: #{game.bonus}"
   end
 
   def first_prompt
