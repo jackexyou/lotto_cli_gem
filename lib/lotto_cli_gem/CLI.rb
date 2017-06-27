@@ -1,6 +1,8 @@
 class LottoCliGem::CLI
   
   def call
+    puts "Welcome to OLG Lottery Winning Numbers CLI!"
+    puts
     scraper = LottoCliGem::Scraper.new
     scraper.scrape_all(scraper.get_games)
 
@@ -19,12 +21,15 @@ class LottoCliGem::CLI
     
     input = nil
     while input != "back"
-      puts "Welcome to OLG Lottery Winning Numbers CLI"
+
+      puts "----------------------------------------------------"
       puts "Please select an option:"
       puts "1. Look up the winning numbers."
       puts "2. Add your own lottery numbers.(NOT AVAILABLE YET)"
       puts "3. Check to see if you're a winner!(NOT AVAILABLE YET)"
+      puts
       puts "Type 'exit' if you would like to exit the program"
+      
 
       input = gets.strip
 
@@ -44,14 +49,18 @@ class LottoCliGem::CLI
   end
 
   def winning_number_prompt
+    puts "----------------------------------------------------"
+    puts "Which game would you like to see the winning numbers for?"
+    puts
+    list_all_games
+    puts
+    puts "Type 'back' if you would like to return to the previous menu"
     
     input = nil
     while input != "back"
-      puts "Which game would you like to see the winning numbers for?"
-      list_all_games
-      puts "Type 'back' if you would like to return to the previous menu"
+      
       input = gets.strip
-      if input.to_i >= 1 && input.to_i <= 5
+      if input.to_i >= 1 && input.to_i <= LottoCliGem::Game.all.size
         winning_numbers(input)
       elsif input =="back"
         return
