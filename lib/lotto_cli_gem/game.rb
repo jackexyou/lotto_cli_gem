@@ -8,11 +8,7 @@ class LottoCliGem::Game
     @winning_numbers = winning_numbers
     @winning_numbers[-1] = "BONUS: #{@winning_numbers[-1]}" 
   end
-
-  def winning_numbers
-    puts "#{@winning_numbers}"
-  end
-
+  
   def self.create_game(name, winning_numbers)
     game = self.new(name, winning_numbers)
     @@all << game

@@ -61,7 +61,7 @@ class LottoCliGem::CLI
       
       input = gets.strip
       if input.to_i >= 1 && input.to_i <= LottoCliGem::Game.all.size
-        winning_numbers(input)
+        puts "#{winning_numbers(input)}"
       elsif input =="back"
         return
       else
